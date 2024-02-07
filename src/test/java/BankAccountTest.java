@@ -84,5 +84,18 @@ public class BankAccountTest {
     }
 
     //METHOD TESTING SUITE
+    @Test
+    public void canDeposit(){
+        float actual = bankAccount.deposit(420.69);
+        assertThat(actual).isEqualTo(420.69);
+    }
+
+    @Test
+    public void canWithdraw(){
+        bankAccount.setBalance(1000);
+        float actual = bankAccount.withdraw(99.99);
+        assertThat(actual).isEqualTo(900.01);
+    }
+    
 
 }

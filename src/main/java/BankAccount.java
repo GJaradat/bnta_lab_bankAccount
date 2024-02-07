@@ -2,12 +2,14 @@ import java.time.LocalDate;
 
 public class BankAccount {
 
+    //INSTANCE VARIABLES
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
     private  int accountNumber;
     private float balance;
 
+    //CONSTRUCTOR
     public BankAccount(String firstName,String lastName, LocalDate dateOfBirth,int accountNumber){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -16,6 +18,7 @@ public class BankAccount {
         this.balance = 0;
     }
 
+    //Getters&Setters
     public String getFirstName() {
         return firstName;
     }
@@ -55,4 +58,15 @@ public class BankAccount {
     public void setBalance(float balance) {
         this.balance = balance;
     }
+
+    //METHODS
+//    public void deposit(float amount){
+//        this.balance += amount;
+//    }
+//
+//    public void withdraw(float amount){
+//        this.balance -= amount;
+//    }
+//
+
 }
