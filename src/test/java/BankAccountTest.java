@@ -83,6 +83,33 @@ public class BankAccountTest {
         assertThat(actual).isEqualTo(1000000);
     }
 
+    @Test
+    public void canGetAccountType(){
+        String actual = bankAccount.getAccountType();
+        assertThat(actual).isEqualTo("Classic Account");
+    }
+
+    @Test
+    public void canSetAccountType(){
+        bankAccount.setAccountType("Easy Access Savings Account");
+        String actual = bankAccount.getAccountType();
+        assertThat(actual).isEqualTo("Easy Access Savings Account");
+    }
+
+    @Test
+    public void canSeeOverdraft(){
+        boolean actual = bankAccount.isOverdraft();
+        assertThat(actual).isEqualTo(false);
+    }
+
+    @Test
+    public void canSetOverdraft(){
+        bankAccount.setOverdraft(true);
+        boolean actual = bankAccount.isOverdraft();
+        assertThat(actual).isEqualTo(true);
+    }
+
+
     //METHOD TESTING SUITE
     @Test
     public void canDeposit(){
@@ -98,7 +125,7 @@ public class BankAccountTest {
         double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(900.01);
     }
-    
+
     @Test
     public void canPayInterest(){
         bankAccount.setBalance(1000);
@@ -107,5 +134,13 @@ public class BankAccountTest {
         assertThat(actual).isEqualTo(1100);
     }
 
+    @Test
+    public void canNotPayInterestInOverdraft(){
+        bankAccount.setBalance(-100);
+        bankAccount.payInterest();
+        double actual = bankAccount.getBalance();
+        assertThat(actual).isEqualTo(-100);
+
 
 }
+

@@ -8,6 +8,8 @@ public class BankAccount {
     private LocalDate dateOfBirth;
     private  int accountNumber;
     private double balance;
+    private String accountType;
+    private boolean overdraft;
 
     //CONSTRUCTOR
     public BankAccount(String firstName,String lastName, LocalDate dateOfBirth,int accountNumber){
@@ -16,6 +18,9 @@ public class BankAccount {
         this.dateOfBirth = dateOfBirth;
         this.accountNumber = accountNumber;
         this.balance = 0;
+        this.accountType = "Classic Account";
+        this.overdraft = false;
+
     }
 
     //Getters&Setters
@@ -57,6 +62,22 @@ public class BankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public boolean isOverdraft() {
+        return overdraft;
+    }
+
+    public void setOverdraft(boolean overdraft) {
+        this.overdraft = overdraft;
     }
 
     //METHODS
