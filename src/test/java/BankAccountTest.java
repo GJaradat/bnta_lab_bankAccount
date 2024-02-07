@@ -72,28 +72,30 @@ public class BankAccountTest {
 
     @Test
     public void canGetBalance(){
-        float actual = bankAccount.getBalance();
+        double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(0);
     }
 
     @Test
     public void canSetBalance(){
         bankAccount.setBalance(1000000);
-        float actual = bankAccount.getBalance();
+        double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(1000000);
     }
 
     //METHOD TESTING SUITE
     @Test
     public void canDeposit(){
-        float actual = bankAccount.deposit(420.69);
+        bankAccount.deposit(420.69);
+        double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(420.69);
     }
 
     @Test
     public void canWithdraw(){
         bankAccount.setBalance(1000);
-        float actual = bankAccount.withdraw(99.99);
+        bankAccount.withdraw(99.99);
+        double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(900.01);
     }
     

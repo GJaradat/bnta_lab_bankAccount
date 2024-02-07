@@ -7,7 +7,7 @@ public class BankAccount {
     private String lastName;
     private LocalDate dateOfBirth;
     private  int accountNumber;
-    private float balance;
+    private double balance;
 
     //CONSTRUCTOR
     public BankAccount(String firstName,String lastName, LocalDate dateOfBirth,int accountNumber){
@@ -51,22 +51,22 @@ public class BankAccount {
         this.accountNumber = accountNumber;
     }
 
-    public float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
     //METHODS
-//    public void deposit(float amount){
-//        this.balance += amount;
-//    }
-//
-//    public void withdraw(float amount){
-//        this.balance -= amount;
-//    }
-//
+    public void deposit(double amount){
+        this.balance += amount;
+    }
+
+    public void withdraw(double amount){
+        this.balance -= amount;
+    }
+
 
 }
