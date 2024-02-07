@@ -11,18 +11,15 @@ public class BankAccountTest {
 
     @BeforeEach
     public void setUp() {
-        bankAccount = new BankAccount();
-        bankAccount.firstName = "Gabriel";
-        bankAccount.lastName = "Dzharadat";
-        bankAccount.dateOfBirth = LocalDate.of(1997,1,3);
-        bankAccount.accountNumber = 133742069;
+        LocalDate dob = LocalDate.of(1997,1,3);
+        bankAccount = new BankAccount("Gabriel","Dzharadat",dob,133742069);
     }
 
     //GETTERS AND SETTERS TESTING SUITE
     @Test
     public void canGetFirstName(){
         String actual = bankAccount.getFirstName();
-        assertThat(actual).isEqualTo(bankAccount.firstName);
+        assertThat(actual).isEqualTo("Gabriel");
     }
 
     @Test
@@ -35,7 +32,7 @@ public class BankAccountTest {
     @Test
     public void canGetLastName(){
         String actual = bankAccount.getLastName();
-        assertThat(actual).isEqualTo(bankAccount.lastName);
+        assertThat(actual).isEqualTo("Dzharadat");
     }
 
     @Test
@@ -47,43 +44,45 @@ public class BankAccountTest {
 
     @Test
     public void canGetDateOfBirth(){
-        String actual = bankAccount.getDateOfBirth();
-        assertThat(actual).isEqualTo(bankAccount.dateOfBirth);
+        LocalDate actual = bankAccount.getDateOfBirth();
+        LocalDate expected = LocalDate.of(1997,1,3);
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     public void canSetDateOfBirth(){
-        bankAccount.setDateOfBirth(2000,1,3);
-        String actual = bankAccount.getDateOfBirth();
-        assertThat(actual).isEqualTo("not sure");
+        bankAccount.setDateOfBirth(LocalDate.of(2000,3,4));
+        LocalDate expected = LocalDate.of(2000,3,4);
+        LocalDate actual = bankAccount.getDateOfBirth();
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
     public void canGetAccountNumber(){
-        String actual = bankAccount.getAccountNumber();
-        assertThat(actual).isEqualTo(bankAccount.accountNumber);
+        int actual = bankAccount.getAccountNumber();
+        assertThat(actual).isEqualTo(133742069);
     }
 
     @Test
     public void canSetAccountNumber(){
         bankAccount.setAccountNumber(999999999);
-        String actual = bankAccount.getAccountNumber();
+        int actual = bankAccount.getAccountNumber();
         assertThat(actual).isEqualTo(999999999);
     }
 
     @Test
     public void canGetBalance(){
-        String actual = bankAccount.getBalance();
-        assertThat(actual).isEqualTo(bankAccount.balance);
+        float actual = bankAccount.getBalance();
+        assertThat(actual).isEqualTo(0);
     }
 
     @Test
     public void canSetBalance(){
         bankAccount.setBalance(1000000);
-        String actual = bankAccount.getBalance();
+        float actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(1000000);
     }
 
     //METHOD TESTING SUITE
-    
+
 }
