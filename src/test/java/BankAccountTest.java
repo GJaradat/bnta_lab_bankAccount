@@ -129,18 +129,18 @@ public class BankAccountTest {
     @Test
     public void canPayInterest(){
         bankAccount.setBalance(1000);
+        bankAccount.setOverdraft(true);
         bankAccount.payInterest();
         double actual = bankAccount.getBalance();
-        assertThat(actual).isEqualTo(1100);
+        assertThat(actual).isEqualTo(1050);
     }
 
     @Test
-    public void canNotPayInterestInOverdraft(){
+    public void canNotPayInterestInOverdraft() {
         bankAccount.setBalance(-100);
         bankAccount.payInterest();
         double actual = bankAccount.getBalance();
         assertThat(actual).isEqualTo(-100);
-
+    }
 
 }
-

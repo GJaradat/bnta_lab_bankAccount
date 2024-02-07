@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BankAccount {
 
@@ -22,6 +24,7 @@ public class BankAccount {
         this.overdraft = false;
 
     }
+
 
     //Getters&Setters
     public String getFirstName() {
@@ -89,5 +92,20 @@ public class BankAccount {
         this.balance -= amount;
     }
 
+    public void payInterest(){
+        // AccountTypes Hashmap. I DON'T KNOW WHERE TO PUT IT BUT I'm SURE IT'S NOT HERE. I JUST WANTED TO MAKE THE CODE EXTENDABLE.
+        HashMap<String, Double> accountTypes = new HashMap<String, Double>();
+        accountTypes.put("Classic Account",0.05);
+        accountTypes.put("Easy Access Savings Account",0.1);
+        accountTypes.put("High Return Savings Account",0.2);
 
+        if (this.overdraft){
+            double interestRate = accountTypes.get(this.accountType);
+            this.deposit(this.balance*interestRate);
+        }
+        else{
+            System.out.println("Cannot pay interest due to overdraft!");
+
+        }
+    }
 }
