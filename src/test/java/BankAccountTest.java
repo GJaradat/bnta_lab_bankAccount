@@ -99,5 +99,13 @@ public class BankAccountTest {
         assertThat(actual).isEqualTo(900.01);
     }
     
+    @Test
+    public void canPayInterest(){
+        bankAccount.setBalance(1000);
+        bankAccount.payInterest();
+        double actual = bankAccount.getBalance();
+        assertThat(actual).isEqualTo(1100);
+    }
+
 
 }
