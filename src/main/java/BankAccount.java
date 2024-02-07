@@ -89,7 +89,12 @@ public class BankAccount {
     }
 
     public void withdraw(double amount){
-        this.balance -= amount;
+        if((this.balance<amount) && (!this.overdraft)){
+            System.out.println("Insufficient funds!");
+        }
+        else {
+            this.balance -= amount;
+        }
     }
 
     public void payInterest(){
@@ -99,7 +104,7 @@ public class BankAccount {
         accountTypes.put("Easy Access Savings Account",0.1);
         accountTypes.put("High Return Savings Account",0.2);
 
-        if (this.overdraft){
+        if (this.balance>0){
             double interestRate = accountTypes.get(this.accountType);
             this.deposit(this.balance*interestRate);
         }

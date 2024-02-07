@@ -127,6 +127,13 @@ public class BankAccountTest {
     }
 
     @Test
+    public void cantWithdrawIfNoOverdraft(){
+        bankAccount.withdraw(10);
+        double actual = bankAccount.getBalance();
+        assertThat(actual).isEqualTo(0);
+    }
+
+    @Test
     public void canPayInterest(){
         bankAccount.setBalance(1000);
         bankAccount.setOverdraft(true);
