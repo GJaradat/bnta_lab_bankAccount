@@ -102,7 +102,7 @@ public class BankAccount {
         HashMap<String, Double> accountTypes = new HashMap<String, Double>();
         accountTypes.put("Classic Account",0.05);
         accountTypes.put("Easy Access Savings Account",0.1);
-        accountTypes.put("High Return Savings Account",0.2);
+        accountTypes.put("High Interest Savings Account",0.2);
 
         if (this.balance>0){
             double interestRate = accountTypes.get(this.accountType);

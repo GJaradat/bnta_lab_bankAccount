@@ -150,4 +150,14 @@ public class BankAccountTest {
         assertThat(actual).isEqualTo(-100);
     }
 
+    @Test
+    public void canPayInterestSavingsAccount(){
+        bankAccount.setBalance(1000);
+        bankAccount.setOverdraft(true);
+        bankAccount.setAccountType("High Interest Savings Account");
+        bankAccount.payInterest();
+        double actual = bankAccount.getBalance();
+        assertThat(actual).isEqualTo(1200);
+    }
+
 }
